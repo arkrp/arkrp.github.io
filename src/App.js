@@ -1,7 +1,14 @@
 import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
+function FragmentRoute(props){
+    return(props.hash);
+}
+
 function App() {
+    const [hash, setHash] = useState(window.location.hash)
+    window.addEventListener("hashchange", (e) => {setHash(e.target.location.hash)});
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +16,10 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <input type='color'/>
+        <a className="App-link" href="/#a">Jump to /a </a>
+        <a className="App-link" href="/#b">Jump to /b </a>
+        <FragmentRoute hash={hash} element={'Hello'}/>
       </header>
     </div>
   );
