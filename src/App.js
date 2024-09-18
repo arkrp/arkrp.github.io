@@ -1,10 +1,8 @@
 import logo from './logo.svg';
 import { useState } from 'react';
 import './App.css';
+import {ManualRoutes, ManualRoute} from './ManualRoutes'
 
-function FragmentRoute(props){
-    return(props.hash);
-}
 
 function App() {
     const [hash, setHash] = useState(window.location.hash)
@@ -13,13 +11,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <input type='color'/>
-        <a className="App-link" href="/#a">Jump to /a </a>
-        <a className="App-link" href="/#b">Jump to /b </a>
-        <FragmentRoute hash={hash} element={'Hello'}/>
+        <a className="App-link" href="/#a">Jump to #a </a>
+        <a className="App-link" href="/#b">Jump to #b </a>
+        <ManualRoutes source={hash}>
+            <ManualRoute route='#a.*' element={'A'}/>
+            <ManualRoute route='#b.*' element={'B'}/>
+        </ManualRoutes>
       </header>
     </div>
   );
