@@ -17,6 +17,7 @@ function App() {
             <ManualRoute route='#home.*' element={'HOME'}/>
             <ManualRoute route='#portfolio.*' element={'PORTFOLIO'}/>
             <ManualRoute route='#projects.*' element={'PROJECTS'}/>
+            <ManualRoute route='#contact.*' element={'CONTACT'}/>
         </ManualRoutes>
       </header>
     </div>
