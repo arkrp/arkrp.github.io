@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+import logo from 'src/img/react_logo.svg';
 import { useState } from 'react';
-import './App.css';
-import {ManualRoutes, ManualRoute} from './ManualRoutes'
+import 'src/App.css';
+import {ManualRoutes, ManualRoute} from 'src/components/ManualRoutes'
+import CustomNavbar from 'src/components/CustomNavbar'
 
 
 function App() {
@@ -9,13 +10,13 @@ function App() {
     window.addEventListener("hashchange", (e) => {setHash(e.target.location.hash)});
   return (
     <div className="App">
+        <CustomNavbar/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <a className="App-link" href="/#a">Jump to #a </a>
-        <a className="App-link" href="/#b">Jump to #b </a>
         <ManualRoutes source={hash}>
-            <ManualRoute route='#a.*' element={'A'}/>
-            <ManualRoute route='#b.*' element={'B'}/>
+            <ManualRoute route='#home.*' element={'HOME'}/>
+            <ManualRoute route='#portfolio.*' element={'PORTFOLIO'}/>
+            <ManualRoute route='#projects.*' element={'PROJECTS'}/>
         </ManualRoutes>
       </header>
     </div>
